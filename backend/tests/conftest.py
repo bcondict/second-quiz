@@ -1,9 +1,9 @@
 import pytest
-from app import app
+from app import hello
 
 @pytest.fixture()
 def app():
-    app = app()
+    app = hello()
     app.config.update({
         'TESTING': True
     })
