@@ -1,0 +1,21 @@
+
+.header {
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+
+    margin-top: 1vw;
+}
+
+.searchBar {
+    display: flex;
+    margin-top: 20px;
+
+    height: 6vh;
+    margin:0 10vw;
+
+    justify-content: space-between;
+
+    border-radius: 30px;
+    position: relative;
+}

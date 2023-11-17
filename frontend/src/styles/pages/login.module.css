@@ -1,0 +1,68 @@
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+
+    height: 100vh;
+}
+
+.title {
+    margin-top: 2rem;
+}
+
+.loginContainer {
+    display: flex;
+    background: #fff;
+
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+
+    border-radius: 20px;
+}
+
+.loginForm {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+
+.loginForm > * {
+    border: none;
+    border-radius: 15px;
+    padding: .8rem 1.5rem;
+
+    font-size: 1rem;
+}
+
+.field {
+    display: flex;
+    background: #D9D9D9;
+
+    margin-bottom: 1rem;
+}
+
+.loginButton {
+    margin: .7rem 4.6rem;
+    width: 10rem;
+    background: #FFA877;
+}
+
+
+.linkText {
+    display: flex;
+    justify-content: center;
+
+    font-size: 1rem;
+    color: #FFA877;
+    text-decoration: none;
+
+    padding: 0;
+}
+
+.linkText > * {
+    margin: .5rem 0 ;
+}

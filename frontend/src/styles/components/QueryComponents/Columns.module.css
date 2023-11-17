@@ -1,0 +1,26 @@
+/* .item {
+
+    flex: 0 0 calc(33.33% - 10px);
+    margin: 5px;
+}
+
+.FullWidth {
+    flex: 0 0 calc(30% - 10px);
+    margin-left: 60px;
+}
+
+.FullWidth:nth-child(6), .FullWidth:nth-child(7) {
+    margin-left: 0;
+    flex: 0 0 calc(50% - 10px);
+    margin: 5px;
+} */
+
+.item {
+    display: flex;
+    margin-right: 50px;
+    margin-bottom: 15px;
+    /* gap: 1rem; */
+    /* justify-content: space-between; */
+    /* align-items: center; */
+    /* margin: 0 20px; */
+}

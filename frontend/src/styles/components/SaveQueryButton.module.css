@@ -1,0 +1,23 @@
+.saveQuery {
+    position: absolute;
+    right: 0;
+
+    border: 0;
+    border-radius: 10px;
+    padding: 10px;
+    background: #74D751;
+    transform: translate(-220%, 50%);
+
+    font-size: 15px;
+}
+
+.saveQuery:hover {
+    cursor: pointer;
+    background: #5CBF3D;
+}
+
+.saveQuery:active {
+    background: #4AAE2B;
+    scale: 0.9;
+    transform: translate(-250%, 50%);
+}

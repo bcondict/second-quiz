@@ -1,0 +1,40 @@
+.queryComponents {
+    /* background: red; */
+    background: #fff;
+    margin:0 11.5vw;
+
+    padding:10px 0;
+
+    height: 50vh;
+
+    border-radius:0 0 25px 25px;
+
+    overflow-y: scroll;
+}
+.queryComponents::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
+
+.querySection {
+    box-shadow: 0 0 0 1px;
+
+    border-radius: 10px;
+
+    padding:1px 15px 0px;
+    margin:15px 25px 25px;
+}
+
+.querySection > p {
+    background: #D9D9D9;
+    padding: 2px 5px 2px 5px;
+    width: fit-content;
+
+    margin: -10px 0 10px;
+}
+
+.querySection > div {
+    display: flex;
+    flex-wrap: wrap;
+}
+

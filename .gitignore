@@ -1,3 +1,6 @@
 */service-account-file.json
 __pycache__
 .venv
+
+/node_modules
+package-lock.json

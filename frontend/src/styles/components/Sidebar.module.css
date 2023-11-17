@@ -1,0 +1,164 @@
+/* Wrapper [parent component] */
+.sidebarWrapper {
+    position: sticky;
+    top: 0;
+    left: 0;
+    height: 98.5vh;
+    width: 17rem;
+}
+
+
+/* Sidebar [Second principal component] */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background: #fff;
+
+    padding: 2rem;
+    padding-bottom: 0;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+    overflow: hidden;
+}
+
+
+/* Top -> Logo, underline */
+.sidebarTop {
+    width: max-content;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+/* Logo */
+.sidebarLogo {
+    margin: 20px 0;
+    transition: all 0.4s;
+}
+
+
+/* Elements */
+.sidebarList {
+    list-style: none;
+    text-decoration: none;
+
+    margin-top: 20px;
+}
+
+/* Each item of list */
+.sidebarItem {
+    position: relative;
+    background: #d9d9d9;
+    margin: 15px 0;
+    border-radius: 10px;
+    height: 1.8rem;
+
+    padding: 10px;
+    padding-bottom: 8px;
+}
+.sidebarItem > *{
+    text-decoration: none;
+    color: #000;
+}
+
+/* Name */
+.sidebarName {
+    position: relative;
+    top: -5px;
+    left: 10px;
+    padding-right: 10px;
+
+    font-size: 1.2rem;
+}
+
+/* Icon */
+.sidebarIcon > *{
+    color: #FFA877;
+}
+
+
+/* Collapse Button */
+.sidebarButton {
+    position: absolute;
+    right: 0;
+    top:2rem;
+    border: none;
+    margin: 10px -25px 0 0;
+
+    border-radius: 50%;
+    background-color: #ffa877;
+    cursor: pointer;
+
+    height: 3rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+    transform: translate(4rem, 0);
+}
+.collapsed {
+    transform: translate(-125px, 0);
+}
+.arrow {
+    height: 3rem !important;
+    width: 3rem !important;
+}
+
+
+/* User */
+.user {
+    position: relative;
+    margin-top: auto;
+    margin-bottom: 2rem;
+    /* width: 100%; */
+    height: 4rem;
+}
+
+.userButton {
+    /* position: absolute; */
+    border: none;
+    /* background: #D9D9D9; */
+    /* background: #a5a5a5; */
+    background: #89AAAA;
+    border-radius: 50px;
+
+    height: inherit;
+    /* width: 12rem; */
+    padding: 0 1.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.userIcon {
+    height: 50px !important;
+    width: 50px !important;
+}
+
+.userName {
+    margin-left: 0.5rem;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+
+[data-collapse="true"] .sidebarName, [data-collapse="true"] .userName {
+    display: none;
+}
+
+[data-collapse="true"] .sidebarButton {
+    margin: 10px 25px 0 0;
+}
+
+[data-collapse="true"] .sidebarLogo {
+    height: 4rem;
+    width: 4rem;
+}
+
+[data-collapse="true"] .userButton {
+    padding: .5rem;
+}
+

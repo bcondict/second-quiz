@@ -1,0 +1,20 @@
+.date { 
+    display: flex;
+    align-items: center;
+    height: fit-content;
+
+    margin: -5px 10px;
+}
+.date > *  {
+    display: flex;
+    /* width: 100%; */
+}
+
+.text {
+    margin-right: 5px;
+}
+
+.date > * > * {
+    /* margin: 5px 1px; */
+    margin: 4px;
+}
