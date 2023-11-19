@@ -1,9 +1,11 @@
+'use client';
 import styles from '@/styles/components/Sidebar.module.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import Image from 'next/image'
 import Link from 'next/link'
 import {Home, ChevronRight, ChevronLeft, Public, Person, Favorite} from '@material-ui/icons';
+import { useAuth } from '@/context/authContext'
 
 
 const sidebarItems = [
@@ -25,11 +27,13 @@ const sidebarItems = [
 ]
 
 const Sidebar = ({ className, ...props }) => {
+  const { user } = useAuth();
   const [isCollapsed, setIsCollapsed] = useState(false)
 
   const toggleSidebar = () => {
     setIsCollapsed(!isCollapsed)
   }
+
 
   return (
     <div className={styles.sidebarWrapper} >
@@ -55,22 +59,33 @@ const Sidebar = ({ className, ...props }) => {
         <ul className={styles.sidebarList}>
           {sidebarItems.map(({name, href, icon: Icon}, index) => {
             return (
-              <li key={index} className={styles.sidebarItem}>
-                <Link href={href}>
+              <Link key={index} href={href}>
+                <li className={styles.sidebarItem}>
                   <Icon className={styles.sidebarIcon}/>
                   <span className={styles.sidebarName}>{name}</span>
-                </Link>
-              </li>
+                </li>
+              </Link>
             )
           })}
         </ul>
 
-        <div className={styles.user}>
-          <button className={styles.userButton}>
-            <Person className={styles.userIcon}/>
-            <span className={styles.userName}>Bcondict</span>
-          </button>
-        </div>
+        {user ? (
+          <Link className={styles.user} href="/profile">
+              <button className={styles.userButton}>
+                <Person className={styles.userIcon}/>
+                <span className={styles.userName}>{user.userName}</span>
+              </button>
+          </Link>
+        ) : (
+          <Link  className={styles.user} href="/login">
+            <div>
+              <button className={styles.userButton}>
+                <Person className={styles.userIcon}/>
+                <span className={styles.userName}>Sign In</span>
+              </button>
+            </div>
+          </Link>
+        )}
       </aside>
     </div>
   )

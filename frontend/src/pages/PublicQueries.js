@@ -1,4 +1,4 @@
-import styles from '@/styles/PublicQueries.module.css'
+import styles from '@/styles/pages/PublicQueries.module.css'
 import Layout from '@/components/Layout/Layout'
 
 const PublicQueries = () => {

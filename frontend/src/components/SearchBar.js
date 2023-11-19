@@ -1,9 +1,19 @@
 import styles from '@/styles/components/SearchBar.module.css'
 import SearchIcon from '@material-ui/icons/Search';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { generateQueryString  } from '@/redux/reducers/generateQuery'
 
 const SearchBar = ({ onSubmit, className }) => {
-  const [searchTerm, setSearchTerm] = useState('Select * from $Dataset ')
+  const [searchTerm, setSearchTerm] = useState('')
+  const checkboxStates = useSelector(state => state.checkboxReducer)
+  const conditionStates = useSelector(state => state.inputReducer)
+  const orderStates = useSelector(state => state.orderReducer)
+
+
+  useEffect(() => {
+    setSearchTerm(generateQueryString(checkboxStates, conditionStates, orderStates))
+  }, [checkboxStates, conditionStates, orderStates])
 
   const handleChange = (event) => {
     setSearchTerm(event.target.value)
@@ -15,9 +25,10 @@ const SearchBar = ({ onSubmit, className }) => {
   }
 
   return (
-    <div className={`${className} ${styles.searchBar}`}>
+    <div className={`${className} ${styles.searchBar}`} >
       <SearchIcon className={styles.searchIcon}/>
       <input
+        id="searchInput"
         type="text"
         placeholder="Query"
         value={searchTerm}

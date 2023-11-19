@@ -17,8 +17,9 @@
     width: 100%;
     background: #fff;
 
-    padding: 2rem;
-    padding-bottom: 0;
+    padding: .5rem;
+    /* padding-bottom: 0; */
+    padding-top: 2rem;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
     overflow: hidden;
 }
@@ -49,6 +50,9 @@
 
     margin-top: 20px;
 }
+.sidebarList > * {
+    text-decoration: none;
+}
 
 /* Each item of list */
 .sidebarItem {
@@ -62,7 +66,6 @@
     padding-bottom: 8px;
 }
 .sidebarItem > *{
-    text-decoration: none;
     color: #000;
 }
 
@@ -88,7 +91,7 @@
     right: 0;
     top:2rem;
     border: none;
-    margin: 10px -25px 0 0;
+    margin: 10px -15px 0 0;
 
     border-radius: 50%;
     background-color: #ffa877;
@@ -112,20 +115,16 @@
     position: relative;
     margin-top: auto;
     margin-bottom: 2rem;
-    /* width: 100%; */
     height: 4rem;
+    text-decoration: none;
 }
 
 .userButton {
-    /* position: absolute; */
     border: none;
-    /* background: #D9D9D9; */
-    /* background: #a5a5a5; */
     background: #89AAAA;
     border-radius: 50px;
 
     height: inherit;
-    /* width: 12rem; */
     padding: 0 1.5rem;
 
     display: flex;
@@ -142,6 +141,10 @@
     margin-left: 0.5rem;
     font-size: 1.3rem;
     font-weight: 500;
+}
+.userButton > * {
+    color: #000;
+    text-transform: capitalize;
 }
 
 

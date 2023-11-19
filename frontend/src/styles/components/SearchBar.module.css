@@ -1,8 +1,9 @@
 /*
-.searchBar {
-    box-shadow: 0 0 0 1px;
-}
 */
+.searchBar {
+    background-color: #fff;
+}
+
 
 .searchIcon {
     color: #A39B9B;
@@ -14,23 +15,10 @@
 }
 
 .searchInput {
-    /* width: 93.1%; */
-    width: 77%;
-    /* height: 96%; */
-    height: 100%;
-    position: absolute;
+    width: 100%;
 
-    border-radius: 30px;
-
-    margin: 0;
-
-    padding-left: 52px;
-    padding-right: 7.7rem;
+    font-size: 18px;
     border: none;
-
-    font-size: 20px;
-
-    word-wrap: break-word;
 }
 .searchInput:focus {
     outline: none;
@@ -46,13 +34,16 @@
     margin: 6px 14px 6px 4px;
     font-size: 1em;
 
-    width: 6em;
+    width: 9em;
 
     background-color: #FFA877;
 }
 
 .submitButton:hover {
     cursor: pointer;
+}
+.submitButton:active {
+    background: #cc865f;
 }
 
 @media (max-width: 1280px) {

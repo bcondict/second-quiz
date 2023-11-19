@@ -1,15 +1,15 @@
 import styles from '@/styles/components/QueryComponents/Columns/Checkbox.module.css'
 
-const Checkbox = ({ className, label, isSelected, onChange }) => {
+const Checkbox = ({ className, columnName, isSelected, onChange }) => {
   return (
     <label className={`${className} ${styles.checkbox}`}>
       <input
         type="checkbox"
-        name={label}
+        name={columnName}
         checked={isSelected}
         onChange={onChange}
       />
-      {label}
+      {columnName}
     </label>
   )
 }

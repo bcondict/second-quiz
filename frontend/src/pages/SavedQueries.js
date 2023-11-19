@@ -1,4 +1,4 @@
-import styles from '@/styles/SavedQueries.module.css'
+import styles from '@/styles/pages/SavedQueries.module.css'
 import Layout from '@/components/Layout/Layout'
 
 const SavedQueries = () => {

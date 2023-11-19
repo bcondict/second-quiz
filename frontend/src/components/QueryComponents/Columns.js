@@ -2,77 +2,44 @@ import styles from '@/styles/components/QueryComponents/Columns.module.css'
 import { useState } from 'react'
 
 import Checkbox from './Columns/Checkbox'
-
+import { useDispatch, useSelector } from 'react-redux'
+import { toggleCheckbox } from '@/redux/actions/checkboxActions'
 
 const checkboxColumns = [
   "all",
-  'Country Name',
-  'Country Code',
+  'country_name',
+  'country_code',
   'value',
-  'Indicator Name',
-  'Indicator Code',
+  'indicator_name',
+  'indicator_code',
   'year'
 ]
 
 const Columns = ({ className, ...props }) => {
   // Initial state for checkbox set to false
-  const initialCheckboxState = Object.fromEntries(checkboxColumns.map((column) => [column, false]))
+  const dispatch = useDispatch()
+  const checkboxStates = useSelector((state) => state.checkboxReducer)
 
-  // set state for checkbox
-  const [checkboxStates, setCheckboxStates] = useState(initialCheckboxState)
 
-  // handle checkbox change
-  // Column is the name of the column
-  // Value is the value of the checkbox (true or false)
   const handleCheckboxChange = (column, newValue) => {
-    // Set true all the columns
-    const allSelectedState = Object.fromEntries(
-      Object.keys(checkboxStates).map((key) => [key, newValue])
-    );
-
-    // if column is all, set all the columns to true
-    if (column === 'all' ) {
-      setCheckboxStates(allSelectedState)
-    }
-
-    // if column is not all, set the column to the value
-    else {
-      // update the state
-      const updatedState = {...checkboxStates, [column]: newValue}
-
-      // if all the columns are true except all, set all to true
-      const allColumnsAreTrueExceptAll = Object.keys(updatedState).every((key) => {
-        return key === 'all' || updatedState[key] === true
-      })
-
-      // set all to false if one of the column is false
-      if (!newValue) {
-        updatedState['all'] = false
-      }
-      // set all to true if all the columns are true except all
-      if (allColumnsAreTrueExceptAll) {
-        updatedState['all'] = true;
-      }
-
-      setCheckboxStates(updatedState)
-    }
+    dispatch(toggleCheckbox(column, newValue))
   }
 
   return(
     <div>
       {/* map for all chexkbox needed */}
-      { checkboxColumns.map((column, index) => {
+      { checkboxColumns.map((columnName, index) => {
         return (
           <Checkbox 
             key={index}
             // classname depends of index for organization
             className={`${styles.item} ${index >= 3 ? styles.FullWidth: ''}`}
             // column name
-            label={column}
+            columnName={columnName}
             // is Checked
-            isSelected={checkboxStates[column]}
+            isSelected={checkboxStates[columnName]}
             // Handle the change
-            onChange={(event) => handleCheckboxChange(column, event.target.checked)}
+            onChange={(event) => handleCheckboxChange(columnName, event.target.checked)}
           />
         )
       })}

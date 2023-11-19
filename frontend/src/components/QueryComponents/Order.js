@@ -2,21 +2,25 @@ import styles from '@/styles/components/QueryComponents/Order.module.css'
 
 import OrderItem from './Order/OrderItem'
 
+const orderColumns = [
+  'country_name',
+  'country_code',
+  'value',
+  'indicator_name',
+  'indicator_code',
+  'year'
+]
+
 const Order = () => {
-  const orderColumns = [
-    "Indicator Name",
-    "Indicator Code",
-    "Country Code",
-    "Value",
-    "Year"
-  ]
 
   return (
-    <div className={styles.OrderField}>
-      {/* <OrderItem label={"Indicator"}/> */}
-      { orderColumns.map((column, index) => {
+    <div className={styles.orderField}>
+      { orderColumns.map((columnName, index) => {
         return (
-          <OrderItem label={column} key={index}/>
+          <OrderItem
+            columnName={columnName}
+            key={index}
+          />
         )
       })}
     </div>
