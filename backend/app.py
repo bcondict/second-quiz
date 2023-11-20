@@ -1,11 +1,8 @@
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
-import uuid
-from werkzeug.security import generate_password_hash, check_password_hash
 # from sqlalchemy.orm import DeclarativeBase
 from flask_cors import CORS
-import hashlib
-import os
+import uuid
 
 
 
@@ -24,6 +21,12 @@ class Users(db.Model):
     user_email = db.Column(db.String(100), unique=True, nullable=False)
     user_password = db.Column(db.String(100), nullable=False)
 
+class Queries(db.Model):
+    id = db.Column(db.String(36), primary_key=True)
+    user_id = db.Column(db.String(36), nullable=False)
+    query_name = db.Column(db.String(100), nullable=False)
+    query = db.Column(db.String(1000), nullable=False)
+    query_description = db.Column(db.String(1000), nullable=False)
 
 
 @app.route("/")
@@ -42,63 +45,35 @@ def Home():
 
 @app.route("/login", methods=["POST"])
 def login():
-    data = request.json
-
-    username = data.get("username")
-    password = data.get("password")
-
-    user = Users.query.filter_by(user_name=username).first()
-
-    # hash_object = hashlib.sha256()
-    # hash_object.update(password.encode())
-    # hashed_password_to_check = hash_object.hexdigest()
-    # print(hashed_password_to_check)
-    # print(user.user_password)
-
-    # if == user.user_password:
-    if check_password_hash(user.user_password, password):
-        userData = {
-            'userName': user.user_name,
-            'userEmail': user.user_email
-        }
-        return jsonify(userData), 200
-
-    else:
-        # Invalid credentials
-        return jsonify({"message": "Invalid Credentials"}), 401
+    from login import login
+    return login(Users)
 
 
 # @app.route("/register")
 @app.route("/register", methods=["POST"])
 def register():
-    data = request.json
-    username = data.get("username")
-    email = data.get("email")
-    password = data.get("password")
+    from register import register
+    return register(Users, db)
 
-    existing_user = Users.query.filter_by(user_name=username).first()
-    existing_email = Users.query.filter_by(user_email=email).first()
 
-    if existing_user or existing_email:
-        # User already exists
-        return jsonify({"message": "Username already exists"}), 400
+@app.route("/saveQuery", methods=["POST"])
+def saveQuery():
+    from saveQuery import saveQuery
+    return saveQuery(Queries, Users, db)
 
-    # salt = os.getrandom(32)
-    # hash_object = hashlib.sha256()
-    # hash_object.update(salt + password.encode())
-    # password = hash_object.hexdigest()
-    hashed_password = generate_password_hash(password, method='pbkdf2:sha256')
-    new_user = Users(
-        id=str(uuid.uuid4()),
-        user_name=username,
-        user_email=email,
-        user_password=hashed_password
-    )
-    db.session.add(new_user)
-    db.session.commit()
+@app.route("/queries", methods=["GET"])
+def queries():
+    # from queries import queries
+    # return queries(Queries, Users, db)
 
-    return jsonify({"message": "User created successfully"}), 201
+    # query = Queries.query.all()
+    
+    # return jsonify("mystring {}" .format(query))
+    # return jsonify(query)
+    queries = db.session.query(Queries).all()
+    print("\n\n\n hollaaa\n\n\n" + queries)
+    return jsonify(queries)
 
 
 if __name__ == "__main__":
-    app.run(debug=True, use_reloader=True)
+    app.run(debug=True)
