@@ -1,7 +1,6 @@
 import styles from '@/styles/pages/login.module.css'
 import Link from 'next/link'
 import { useState } from 'react'
-import { useAuth } from '@/context/authContext'
 
 const Login = () => {
   const [loginUsername, setLoginUsername] = useState('')

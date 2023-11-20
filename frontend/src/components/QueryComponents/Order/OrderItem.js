@@ -8,8 +8,6 @@ const OrderItem = ({ columnName }) => {
   const dispatch = useDispatch()
   const orderStates = useSelector((state) => state.orderReducer)
 
-  console.log("orderStates ", orderStates)
-
   const handleOrderChange = (columnName, newValue, direction) => {
     dispatch(orderIndicator(columnName, newValue, direction))
   }

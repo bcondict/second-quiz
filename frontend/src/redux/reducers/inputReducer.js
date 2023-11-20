@@ -12,7 +12,6 @@ const initialState = {
 const inputReducer = (state = initialState, action) => {
   switch (action.type) {
     case INPUT_CHANGE:
-      // console.log(`action.paylodad.columnName: ${action.payload.columnName} action.payload.newValue: ${action.payload.newValue}`)
       const updatedState = {
         ...state,
         [action.payload.columnName]: action.payload.newValue

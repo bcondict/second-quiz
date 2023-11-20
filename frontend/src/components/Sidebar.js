@@ -16,12 +16,12 @@ const sidebarItems = [
   },
   {
     name: 'Saved Queries',
-    href: '/SavedQueries',
+    href: '/savedQueries',
     icon: Favorite 
   },
   {
     name: 'Public Queries',
-    href: '/PublicQueries',
+    href: '/publicQueries',
     icon: Public 
   },
 ]

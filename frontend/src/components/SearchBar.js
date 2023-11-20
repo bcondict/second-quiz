@@ -15,6 +15,9 @@ const SearchBar = ({ onSubmit, className }) => {
     setSearchTerm(generateQueryString(checkboxStates, conditionStates, orderStates))
   }, [checkboxStates, conditionStates, orderStates])
 
+  if (typeof sessionStorage !== 'undefined' && sessionStorage !== null)
+    sessionStorage.setItem('last_query', JSON.stringify(searchTerm))
+
   const handleChange = (event) => {
     setSearchTerm(event.target.value)
   }

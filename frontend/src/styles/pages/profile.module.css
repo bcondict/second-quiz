@@ -1,3 +1,36 @@
+.container {
+    margin: 0;
+    position: relative;
+    display: flex;
+    width: 60vw;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: #fff;
+    padding: 2rem 4.5rem;
+    border-radius: 20px;
+}
+
+
+.userName, .userEmail {
+    font-size: 1.1rem;
+    margin: 1rem 0 0;
+}
+.userName {
+    text-transform: capitalize;
+}
+.userEmail {
+    /* font-size: 0.9rem; */
+    color: #A9A9A9;
+}
 
 .button {
     background-color: #FFA877;
@@ -6,8 +39,15 @@
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     font-size: 16px;
 
     border-radius: 10px;
+
+    margin-top: 2rem;
+
+    width: 10rem;
+}
+
+.deleteAcount {
+    background: #89AAAA;
 }

@@ -12,7 +12,6 @@ const initialState = {
 const orderReducer = (state = initialState, action) => {
   switch (action.type) {
     case ORDER_INDICATOR:
-      console.log("column ", action.payload)
       const updatedState = {
         ...state,
         [action.payload.columnName]: action.payload.direction
