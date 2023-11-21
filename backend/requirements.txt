@@ -2,3 +2,5 @@ flask
 flask_sqlalchemy
 flask_cors
 google.cloud
+flask-mysqldb
+mysqlclient

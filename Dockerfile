@@ -1,5 +1,5 @@
 # Use a base image with Node.js for the front-end (Next.js)
-FROM node:latest AS frontend
+FROM node:20 AS frontend
 
 # Set working directory for the front-end
 WORKDIR /app/frontend
@@ -35,16 +35,16 @@ COPY backend/ .
 FROM mysql:latest AS database
 
 # Set MySQL environment variables
-ENV MYSQL_ROOT_PASSWORD=root
-ENV MYSQL_DATABASE=ver_tech_fellowship
-ENV MYSQL_USER=root
+ENV MYSQL_ROOT_PASSWORD="root"
+ENV MYSQL_DATABASE="ver_tech_fellowship"
+ENV MYSQL_USER="root"
 ENV MYSQL_PASSWORD=""
 
 # Copy MySQL initialization script
 COPY DataBase/creation_tables.sql /docker-entrypoint-initdb.d/init.sql
 
 # Use a final base image for the app
-FROM node:latest
+FROM node:20
 
 # Set working directory for the app
 WORKDIR /app
