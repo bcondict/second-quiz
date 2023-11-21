@@ -2,4 +2,4 @@
 
 docker build -t ver_tech_fellowship .
 
-docker-compose -f docker-compose.yml -d
+docker-compose -f docker-compose.yml up -d

@@ -12,5 +12,10 @@ After building a query in the tool, you can save the query by clicking the save 
 ## Create user
 To save a new query you must log in if you are not logged in. You can create a new user by clicking the sign up button. If you don't have and account you must create one with your name or nickname, your email and your passworkd. After creating an account you can log in with your email and password.
 
+
+## Link to a video for help
+[here](https://youtu.be/Oi4KO_wgZ6E) you can find a video talking about usage of the application and what I would implemente to make it more scalable
+
+
 ## In process
 Is still on development the option to edit a query and the option to delete a query. Also remove an user, and comment other's queries.l
