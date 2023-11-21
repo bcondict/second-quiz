@@ -9,11 +9,11 @@ create table if not exists users (
     primary key (id)
 );
 
-create table if not exists queries (
+create table if not exists queries_string (
     id varchar(36),
     user_id varchar(36),
     query_name varchar(255) not null,
-    query text,
+    query_string text,
     query_description text,
     primary key (id),
     foreign key (user_id) references users(id)
@@ -26,5 +26,5 @@ create table if not exists others_comments (
     comment text,
     primary key (id),
     foreign key (user_id) references users(id),
-    foreign key (query_id) references queries(id)
+    foreign key (query_id) references queries_string(id)
 );

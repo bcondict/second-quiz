@@ -1,12 +1,12 @@
 import styles from '@/styles/pages/PublicQueries.module.css'
 import Layout from '@/components/Layout/Layout'
 import QueryElement from '@/components/Queries/QueryElement'
-import { useAuth } from '@/context/authContext'
+import { useState, useEffect } from 'react'
 
 const PublicQueries = () => {
-  const { user } = useAuth()
+  const [queries, setQueries] = useState([])
 
-  const publicQueries = () => {
+  useEffect(() => {
     const url = 'http://localhost:5000/queries'
 
     const publicQueriesRequest = {
@@ -22,24 +22,27 @@ const PublicQueries = () => {
         return res.json()
       })
       .then(data => {
-        console.log(data)
+        setQueries(data.queries)
       })
       .catch(err => {
         console.error('There has been a problem with your fetch operation: ', err)
       })
-  }
+  }, [])
+
   return (
     <Layout>
       <div className={styles.container}>
         <div className={styles.publicQueries}>
           <h1 className={styles.title}>Public Queries</h1>
-          <QueryElement
-            className={styles.queryElement}
-            user={user ? user.userName : 'Anonymous'}
-            title="Query Title"
-            description="Query Description"
-          />
-          <button onClick={publicQueries}>Click me</button>
+          { queries.map((query, index) => (
+            <QueryElement
+              key={index}
+              className={styles.queryElement}
+              user={query.user}
+              title={query.queryName}
+              description={query.queryDescription}
+            />
+          ))}
         </div>
       </div>
     </Layout>

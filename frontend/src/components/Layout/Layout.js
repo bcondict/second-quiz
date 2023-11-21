@@ -11,9 +11,9 @@ const Layout = ({ children }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Sidebar />
       <main>
         <div className={styles.Layout}>
+          <Sidebar />
           <div className={styles.content}>
             {children}
           </div>

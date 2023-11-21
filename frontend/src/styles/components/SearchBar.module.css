@@ -41,6 +41,7 @@
 
 .submitButton:hover {
     cursor: pointer;
+    opacity: .8;
 }
 .submitButton:active {
     background: #cc865f;

@@ -6,12 +6,10 @@ import Link from 'next/link'
 import { useState } from 'react'
 
 const SaveQuery = () => {
-  const queryString = sessionStorage.getItem('last_query')
+  const is_valid = (typeof sessionStorage !== 'undefined' && sessionStorage !== null)
+  const queryString = is_valid ? sessionStorage.getItem('queryString') : ''
   const [queryName, setQueryName] = useState('')
   const [queryDescription, setQueryDescription] = useState('')
-
-  console.log(queryName)
-  console.log(queryDescription)
 
   const handleSave = (e) => {
     e.preventDefault()
@@ -42,7 +40,7 @@ const SaveQuery = () => {
         window.location.href = '/savedQueries'
       })
       .catch(err => {
-        console.error('There has been a problem with your fetch operation: ', err)
+        console.error('There has been a problem with your fetch operation ' )
       })
   }
 

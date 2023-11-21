@@ -7,3 +7,12 @@
     align-items: center;
     justify-content: center;
 }
+
+.queryElement {
+    margin-bottom: 2rem;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+}

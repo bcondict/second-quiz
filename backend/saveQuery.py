@@ -16,7 +16,7 @@ def saveQuery(Queries, Users, db):
         user_id=user.id,
         query_name=queryName,
         query_description=queryDescription,
-        query=queryString
+        query_string=queryString
     )
 
     db.session.add(new_query)

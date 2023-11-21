@@ -1,0 +1,18 @@
+.container {
+    margin: 0;
+    position: relative;
+    display: flex;
+    width: 60vw;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.queryElement {
+    margin-bottom: 2rem;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+}

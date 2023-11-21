@@ -1,27 +1,18 @@
 import os
-from flask import jsonify
+from flask import jsonify, request
 from google.cloud import bigquery
 
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = './service-account-file.json'
 
-# Construct a BigQuery SQL query
-sql_query = """
-SELECT
-  country_name,
-  AVG(value) AS average
-FROM
-  `bigquery-public-data.world_bank_intl_education.international_education`
-WHERE
-  indicator_code = "SE.XPD.TOTL.GB.ZS"
-  AND year > 2000
-GROUP BY
-  country_name
-ORDER BY
-  average DESC
-LIMIT 20
-"""
 
 def get_data():
+    data = request.json
+    sql_query = data.get("queryString")
+
+    sql_query = sql_query.replace("`", "\"")
+    sql_query = sql_query.replace("$Dataset", "`bigquery-public-data.world_bank_intl_education.international_education`")
+    sql_query = sql_query + " LIMIT 20"
+
     # Itinialize a BigQuery Client
     client = bigquery.Client()
 

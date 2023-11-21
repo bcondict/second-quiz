@@ -71,19 +71,17 @@ const Sidebar = ({ className, ...props }) => {
 
         {user ? (
           <Link className={styles.user} href="/profile">
-              <button className={styles.userButton}>
-                <Person className={styles.userIcon}/>
-                <span className={styles.userName}>{user.userName}</span>
-              </button>
+            <button className={styles.userButton}>
+              <Person className={styles.userIcon}/>
+              <span className={styles.userName}>{user.userName}</span>
+            </button>
           </Link>
         ) : (
           <Link  className={styles.user} href="/login">
-            <div>
-              <button className={styles.userButton}>
-                <Person className={styles.userIcon}/>
-                <span className={styles.userName}>Sign In</span>
-              </button>
-            </div>
+            <button className={styles.userButton}>
+              <Person className={styles.userIcon}/>
+              <span className={styles.userName}>Sign In</span>
+            </button>
           </Link>
         )}
       </aside>

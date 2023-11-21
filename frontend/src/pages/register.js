@@ -1,6 +1,7 @@
 import styles from '@/styles/pages/register.module.css'
 import Link from 'next/link'
 import { useState } from 'react'
+import Image from 'next/image'
 
 const Register = () => {
   const [registerUsername, setRegisterUsername] = useState('')
@@ -55,8 +56,12 @@ const Register = () => {
 
       {/* Login Container */}
       <div className={styles.registerContainer}>
-        {/* Image Logo */}
-        <img src="/LogoHorizontal.png" alt="login" />
+        <Image
+          src="/LogoHorizontal.png"
+          alt="login"
+          width={300}
+          height={80}
+        />
 
         {/* Register Form */}
         <form id="registerForm" className={styles.registerForm} onSubmit={handleRegister}>

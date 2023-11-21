@@ -1,13 +1,13 @@
 .layout {
     /* height: 100vh; */
     height: 100%;
+    position: relative;
 }
 
 .content {
     margin:20px 20vw;
     position: absolute;
     top: 0;
-
 }
 
 

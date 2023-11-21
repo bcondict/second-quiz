@@ -1,6 +1,6 @@
 /* Wrapper [parent component] */
 .sidebarWrapper {
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
     height: 98.5vh;
@@ -17,8 +17,6 @@
     width: 100%;
     background: #fff;
 
-    padding: .5rem;
-    /* padding-bottom: 0; */
     padding-top: 2rem;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
     overflow: hidden;
@@ -91,7 +89,7 @@
     right: 0;
     top:2rem;
     border: none;
-    margin: 10px -15px 0 0;
+    /* margin: 10px -15px 0 0; */
 
     border-radius: 50%;
     background-color: #ffa877;

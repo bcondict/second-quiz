@@ -18,11 +18,5 @@
 
 .saveQuery:hover {
     cursor: pointer;
-    background: #5CBF3D;
-}
-
-.saveQuery:active {
-    background: #4AAE2B;
-    scale: 0.9;
-    transform: translate(-250%, 50%);
+    opacity: .8;
 }

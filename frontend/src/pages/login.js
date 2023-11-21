@@ -1,6 +1,7 @@
 import styles from '@/styles/pages/login.module.css'
 import Link from 'next/link'
 import { useState } from 'react'
+import Image from 'next/image'
 
 const Login = () => {
   const [loginUsername, setLoginUsername] = useState('')
@@ -47,7 +48,12 @@ const Login = () => {
       {/* Login Container */}
       <div className={styles.loginContainer}>
         {/* image Logo */}
-        <img src="/LogoHorizontal.png" alt="login" />
+        <Image
+          src="/LogoHorizontal.png"
+          alt="login"
+          width={300}
+          height={80}
+        />
 
         {/* Login Form */}
         <form id="loginForm" className={styles.loginForm} onSubmit={handleLogin}>
@@ -68,7 +74,7 @@ const Login = () => {
             required
           />
           <button className={styles.loginButton} type="submit">Sign In</button>
-          <Link href="/register" className={styles.linkText}><p>Don't have an account? <span>Sign Up</span></p></Link>
+          <Link href="/register" className={styles.linkText}><p>Don&apos;t have an account? <span>Sign Up</span></p></Link>
         </form>
       </div>
     </div>
