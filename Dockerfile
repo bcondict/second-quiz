@@ -1,5 +1,5 @@
 # Use a base image with Node.js for the front-end (Next.js)
-FROM node:20 AS frontend
+FROM node:latest AS frontend
 
 # Set working directory for the front-end
 WORKDIR /app/frontend
@@ -44,7 +44,7 @@ ENV MYSQL_PASSWORD=""
 COPY DataBase/creation_tables.sql /docker-entrypoint-initdb.d/init.sql
 
 # Use a final base image for the app
-FROM node:20
+FROM node:latest
 
 # Set working directory for the app
 WORKDIR /app
